@@ -5,7 +5,8 @@ export const getAllPosts=()=>dispatch=>{
       type:GET_ALL_POSTS_BEGIN,
     })
     return serverCall({
-      method:'POST',
+      method:'GET',
+      url:'https://api.producthunt.com/v1/posts',
       data:{
           query:"query { posts(first: 10) { edges { node { id, name,tagline,website, thumbnail {type,url,videoUrl} } } }  }"
       }
@@ -15,6 +16,7 @@ export const getAllPosts=()=>dispatch=>{
         type: GET_ALL_POSTS_SUCCESS,
         payload: res
       })
+      console.log(res.data.data.posts);
       return res
     })
     .catch(error=>{

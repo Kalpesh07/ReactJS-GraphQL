@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import { connect } from 'react-redux'
 import { registerNav } from './modules/Navigation'
 import DashboardContainer from './pages/dashboard/DashboardContainer'
+
 //import './App.scss'
 // const App = () => (
 //     <div className="container">

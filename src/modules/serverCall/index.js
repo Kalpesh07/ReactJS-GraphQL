@@ -3,7 +3,8 @@ import jumpTo from '../Navigation'
 import axios from 'axios'
 import qs from 'qs'
 
-const URL = ' https://api.producthunt.com/v2/api/graphql'
+//const URL = ' https://api.producthunt.com/v2/api/graphql'
+const URL = ' https://api.producthunt.com/v1/'
 // const URL = 'http://localhost:4000'
 
 const serverCall = (config) => {

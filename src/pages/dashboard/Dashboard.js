@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import HeaderContainer from '../../components/header/headerContainer'
-import posts from './components/post'
+//import HeaderContainer from '../../components/header/headerContainer'
+import Posts from './components/Post'
 import LoadingAnimation from '../../components/loadingAnimation'
 //import Filter from './components/Filter'
 import styles from './stylesheets/dashboard.module.sass'
@@ -17,6 +17,7 @@ export default class Dashboard extends Component {
   }
   render() {
     const { posts } = this.props
+    console.log(posts);
     let pClass = [
       styles.fontde,
       styles.greyfont,
@@ -39,14 +40,14 @@ export default class Dashboard extends Component {
     ] 
     votetagClass = votetagClass.join(' ')
     return (
-      <div className={styles.outbox}>
-        <div className={styles.maincontent}>
-        <div className={styles.main}>
-          <div className={styles.header}>
-              Today
-          </div>
-         <Post />
-        </div>
+      <div className={styles.outbox}><div className={styles.maincontent}>
+      <div className={styles.main}>
+      <div className={styles.header}>Today</div>
+      {posts && posts.map(p =>
+      <Posts name={p.name} tagline={p.tagline} image={p.thumbnail.image_url} commentcount={p.comments_count} votescount={p.votes_count}></Posts>
+      )}
+      </div>
+      </div>
       </div>
     )
   }
